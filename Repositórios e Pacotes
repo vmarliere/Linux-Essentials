@@ -1,0 +1,31 @@
+---------------------------------------------------ORACLE LINUX---------------------------------------------------
+
+-- Conferir a lista de repositórios no sistema:
+sudo yum repolist all
+
+-- Habilitar se existir repositórios desabilitados (Versões mais antigas do Oracle Linux):
+sudo yum-config-manager --enable <nome-do-repositório>
+sudo yum-config-manager --enable \*
+
+-- Instalar um pacote:
+sudo yum install <nome-do-pacote>
+
+-- Remover um pacote:
+sudo yum remove <nome-do-pacote>
+
+-- Listar os pacotes instalados:
+sudo yum list installed
+
+-- Atualizar o cache do YUM:
+sudo yum makecache
+
+-- Limpar o cache do YUM:
+sudo yum clean all
+
+-- Atualização de todo o sistema:
+sudo yum update
+
+
+
+
+
