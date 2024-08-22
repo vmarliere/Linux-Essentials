@@ -1,0 +1,45 @@
+O arquivo `ifcfg-enp0s3` padrão no Oracle Linux, especialmente após uma instalação típica com a configuração de rede automática, geralmente tem o seguinte conteúdo:
+
+```bash
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=dhcp
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=enp0s3
+UUID=<UUID-único>
+DEVICE=enp0s3
+ONBOOT=yes
+AUTOCONNECT_PRIORITY=-999
+```
+
+**Explicação dos parâmetros:**
+- `TYPE=Ethernet`: Define que o tipo de interface é Ethernet.
+- `PROXY_METHOD=none` e `BROWSER_ONLY=no`: Relacionados a configurações de proxy e navegador, normalmente desativados.
+- `BOOTPROTO=dhcp`: Configura a interface para obter um endereço IP automaticamente via DHCP.
+- `DEFROUTE=yes`: Define se esta interface será usada como a rota padrão.
+- `IPV4_FAILURE_FATAL=no`: Não considera como falha crítica a falha na configuração do IPv4.
+- `IPV6INIT=yes`: Ativa o IPv6.
+- `IPV6_AUTOCONF=yes`: Permite a configuração automática de IPv6.
+- `IPV6_DEFROUTE=yes`: Define a rota padrão para IPv6.
+- `IPV6_FAILURE_FATAL=no`: Não considera como falha crítica a falha na configuração do IPv6.
+- `IPV6_ADDR_GEN_MODE=stable-privacy`: Configura a geração de endereços IPv6.
+- `NAME=enp0s3`: Nome da interface.
+- `UUID=<UUID-único>`: Identificador único da interface.
+- `DEVICE=enp0s3`: Nome do dispositivo.
+- `ONBOOT=yes`: Define que a interface será ativada na inicialização.
+- `AUTOCONNECT_PRIORITY=-999`: Prioridade de conexão automática.
+
+Se você precisar restaurar a configuração padrão, pode copiar e colar o conteúdo acima no arquivo `/etc/sysconfig/network-scripts/ifcfg-enp0s3`, ajustando apenas o valor do `UUID` se necessário. Para encontrar o `UUID` correto, você pode usar o comando:
+
+```bash
+nmcli con show
+```
+
+Isso mostrará uma lista de conexões e seus respectivos UUIDs.
